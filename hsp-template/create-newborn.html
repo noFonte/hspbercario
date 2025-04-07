@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/global.css">
+    <link rel="stylesheet" href="assets/home/home.css">
+    <title>HSP-PARTOS</title>
+</head>
+
+<body>
+    <div class="hsp hsp--tablet">
+        <section id="box_menu" class=" footer__menu hidden ">
+            <section class="footer__menu__title">
+                <h2>Hospital</h2>
+                <span>
+                    <a href="index.html" onclick="events()">
+                        X
+                    </a>
+                </span>
+            </section>
+            <section class="footer__menu__content">
+                <a href="index.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
+                        </svg>
+                        <p>
+                            Tela Geral do Sistema
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="recent-births.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M120-80v-397.95L182-662q8-23 26.5-35.5t40.87-12.5q7.16 0 14.31 1.29 7.16 1.28 14.32 4.71l168 74h94v60H432l-116-51-56 169v372H120Zm250-130v-60h470v60H370Zm410-110q-25 0-42.5-17.5T720-380q0-25 17.5-42.5T780-440q25 0 42.5 17.5T840-380q0 25-17.5 42.5T780-320Zm-270-10q-24.75 0-42.37-17.63Q450-365.25 450-390v-60h-80v-60h110.18q12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v50h120v-80h60v120q0 24.75-17.62 42.37Q654.75-330 630-330H510ZM313.08-774q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+                        <p>
+                            Partos Recentes do Ultimos 10 Dias
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="bercarios.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M411-80v-180h-91v-314q0-50 28-78t77.5-28q49.5 0 76 33t26.5 73q52 6 82 41.5t30 89.5v183H485v180h-74Zm15.08-654q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+
+
+                        <p>
+                            Registrar um novo Paciente
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+                <a href="list-medicos.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M290-240h60v-90h90v-60h-90v-90h-60v90h-90v60h90v90Zm230-150h240v-40H520v40Zm0 120h160v-40H520v40ZM140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42.41-18h59.18Q534-880 552-862q18 18 18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42.41 16h-59.18Q426-530 408-546q-18-16-18-44v-30H140v480Zm310-450h60v-230h-60v230Zm30 210Z" />
+                        </svg>
+
+                        <p>
+                            Grade de Medicos
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="create-newborn.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+                        </svg>
+                        <p>
+                            Registrar novo Parto de uma Criança
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+            </section>
+        </section>
+
+        <section class="headinfo">
+            <div class="headinfo__logo">
+                <img class="headinfo__avatar" src="assets/imgs/logo_one.png" alt="" srcset="">
+            </div>
+            <div class="headinfo__title">
+                <div class="headinfo__title__title">Hospital Super Parto</div>
+                <div class="headinfo__title__info">Controle de Nascimento e Gestão de Parto.</div>
+
+            </div>
+            <div class="headinfo__version">
+                <span>versão: 1 </span>
+            </div>
+        </section>
+
+        <section class="hsp-main">
+
+
+
+
+            <div class="row-full row-full-c1">
+
+                <a class="btn-full" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                        fill="#1f1f1f">
+                        <path
+                            d="M679-466 466-679l213-213 213 213-213 213Zm-559-72v-301h301v301H120Zm418 418v-301h301v301H538Zm-418 0v-301h301v301H120Zm60-478h181v-181H180v181Zm502 51 129-129-129-129-129 129 129 129Zm-84 367h181v-181H598v181Zm-418 0h181v-181H180v181Zm181-418Zm192-78ZM361-361Zm237 0Z" />
+                    </svg>
+                </a>
+
+                <a class="btn-full" href="list-doctors.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                        fill="#1f1f1f">
+                        <path
+                            d="M80-160v-173h173v173H80Zm233 0v-173h567v173H313ZM80-393v-174h173v174H80Zm233 0v-174h567v174H313ZM80-627v-173h173v173H80Zm233 0v-173h567v173H313Z" />
+                    </svg>
+                    Ver Pacientes
+
+                </a>
+            </div>
+
+            <div class="row-full">
+
+
+                <div class="row-childbirth">
+                    <form action="">
+                        <p>
+                            <b>Adicione um Registro para novo Parto</b>, Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.
+                            Possimus non a doloribus architecto voluptates officiis placeat magnam perspiciatis voluptas
+                            assumenda optio quo exercitationem, temporibus consectetur dolor quaerat tempora impedit in.
+                        </p>
+
+
+                        <section class="childbirth__content">
+
+                            <div class="txt-col-full">
+                                <label for="">Nome completo</label>
+                                <input class="input-full" type="text" value="">
+                                <p>*Obrigatorio</p>
+
+                            </div>
+
+                            <div class="txt-col-full">
+                                <label for="">Data de Nascimento</label>
+                                <input class="input-full" type="text"  value="">
+                                <p>*Obrigatorio</p>
+
+                            </div>
+
+
+                            <div class="txt-col-full">
+                                <label for="">Altura</label>
+                                <input class="input-full" type="text"  value="">
+                                <p>*Obrigatorio</p>
+
+                            </div>
+
+                            <div class="txt-col-full">
+                                <label for="">Peso</label>
+                                <input class="input-full" type="text"  value="">
+                                <p>*Obrigatorio</p>
+
+                            </div>
+
+
+
+
+                            <div class="txt-col-full">
+                                <label for="">Mãe</label>
+                                <select name="" class="input-full" id="">
+                                    <option>....</option>
+                                </select>
+                            </div>
+
+
+                            <div class="txt-col-full">
+                                <label for="">Médico</label>
+                                <select name="" class="input-full" id="">
+                                    <option>....</option>
+                                </select>
+                            </div>
+
+
+
+
+                         
+
+
+                           
+
+
+
+
+
+
+
+                        </section>
+
+
+                        <div class="childbirth__footer">
+                            
+                            <div class="childbirth__actions actions--created">
+                                <button>Salvar </button>
+                                <button>Limpar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="row-full">
+                <a href="index.html" class="back">
+                    VOLTAR
+                </a>
+            </div>
+
+
+        </section>
+
+        <footer class="hsp-footer">
+
+            <button class="hsp-footer__menu" id="button_openmenu" onclick="events()">
+                <img class="hsp-footer__menu__action"
+                    src="assets/imgs/radio_button_checked_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="" srcset="">
+            </button>
+
+        </footer>
+    </div>
+
+    <script src="assets/core.js"></script>
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

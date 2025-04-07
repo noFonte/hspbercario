@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/global.css">
+    <link rel="stylesheet" href="assets/home/home.css">
+    <title>HSP-PARTOS</title>
+</head>
+
+<body>
+    <div class="hsp hsp--tablet">
+        <section id="box_menu" class=" footer__menu hidden ">
+            <section class="footer__menu__title">
+                <h2>Hospital</h2>
+                <span>
+                    <a href="index.html" onclick="events()">
+                        X
+                    </a>
+                </span>
+            </section>
+            <section class="footer__menu__content">
+                <a href="index.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
+                        </svg>
+                        <p>
+                            Tela Geral do Sistema
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="recent-births.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M120-80v-397.95L182-662q8-23 26.5-35.5t40.87-12.5q7.16 0 14.31 1.29 7.16 1.28 14.32 4.71l168 74h94v60H432l-116-51-56 169v372H120Zm250-130v-60h470v60H370Zm410-110q-25 0-42.5-17.5T720-380q0-25 17.5-42.5T780-440q25 0 42.5 17.5T840-380q0 25-17.5 42.5T780-320Zm-270-10q-24.75 0-42.37-17.63Q450-365.25 450-390v-60h-80v-60h110.18q12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v50h120v-80h60v120q0 24.75-17.62 42.37Q654.75-330 630-330H510ZM313.08-774q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+                        <p>
+                            Partos Recentes do Ultimos 10 Dias
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="bercarios.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M411-80v-180h-91v-314q0-50 28-78t77.5-28q49.5 0 76 33t26.5 73q52 6 82 41.5t30 89.5v183H485v180h-74Zm15.08-654q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+
+
+                        <p>
+                            Registrar um novo Paciente
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+                <a href="list-medicos.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M290-240h60v-90h90v-60h-90v-90h-60v90h-90v60h90v90Zm230-150h240v-40H520v40Zm0 120h160v-40H520v40ZM140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42.41-18h59.18Q534-880 552-862q18 18 18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42.41 16h-59.18Q426-530 408-546q-18-16-18-44v-30H140v480Zm310-450h60v-230h-60v230Zm30 210Z" />
+                        </svg>
+
+                        <p>
+                            Grade de Medicos
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="create-newborn.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+                        </svg>
+                        <p>
+                            Registrar novo Parto de uma Criança
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+            </section>
+       </section>
+
+        <section class="headinfo">
+            <div class="headinfo__logo">
+                <img class="headinfo__avatar" src="assets/imgs/logo_one.png" alt="" srcset="">
+            </div>
+            <div class="headinfo__title">
+                <div class="headinfo__title__title">Hospital Super Parto</div>
+                <div class="headinfo__title__info">Controle de Nascimento e Gestão de Parto.</div>
+
+            </div>
+            <div class="headinfo__version">
+                <span>versão: 1 </span>
+            </div>
+        </section>
+
+        <section class="hsp-main">
+
+
+
+
+            <div class="row-full statebox--legend">
+
+                    <div class="statebox">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">Hoje</p>
+                    </div>
+
+                    <div class="statebox statebox--yesterday">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">Ontem</p>
+                    </div>
+
+
+                    <div class="statebox statebox--4daysago">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">4 Dias Atrás</p>
+                    </div>
+
+                    <div class="statebox statebox--lastweek">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">Semana</p>
+                    </div>
+
+
+            </div>
+        
+
+            <div class="row-full">
+
+
+                <div class="row-childbirth">
+                    <div class="statebox statebox--childbirth ">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">Hoje</p>
+                    </div>
+                    <h1>Parto : 202505030098765</h1>
+                    <h2>Maria Jose Kardoso Silva Paulo</h2>
+                    <h3>
+                        Médico:EdilsonCsilva , Pediatra
+                    </h3>
+                    <h4>
+                        CRM:9886GGBS65443S
+                    </h4>
+
+                    <p>
+                        Quando a cabeça do bebê aparece, o médico ou obstetra irá cuidar da situação para garantir que o
+                        parto transcorra sem complicações. Após o nascimento da cabeça, o corpo do bebê segue
+                        rapidamente. Assim que o bebê nasce, ele é colocado sobre o peito da mãe, para promover o
+                        vínculo imediato e permitir o contato pele a pele. O cordão umbilical é cortado, e o bebê é
+                        limpo, aquecido e, se necessário, aspirado para remover líquidos das vias respiratórias.
+                    </p>
+
+
+                    <div class="childbirth__footer">
+                        <div class="childbirth__avatar">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+
+                        </div>
+                        <div class="childbirth__actions">
+                            <button>Detalhes</button>
+                            <button>Sobre a Mae</button>
+                            <button>Sobre o Medico</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row-childbirth">
+
+                    <div class="statebox statebox--childbirth statebox--lastweek">
+                        <span class="statebox_ico"></span>
+                        <p class="statebox_title">Semana</p>
+                    </div>
+                    <h1>Parto : 20250503</h1>
+                    <h2>Isak Silva Paulo</h2>
+                    <h3>
+                        Médico:EdilsonCsilva , Pediatra
+                    </h3>
+                    <h4>
+                        CRM:9886GGBS65443S
+                    </h4>
+
+                    <p>
+                        Quando a cabeça do bebê aparece, o médico ou obstetra irá cuidar da situação para garantir que o
+                        parto transcorra sem complicações. Após o nascimento da cabeça, o corpo do bebê segue
+                        rapidamente. Assim que o bebê nasce, ele é colocado sobre o peito da mãe, para promover o
+                        vínculo imediato e permitir o contato pele a pele. O cordão umbilical é cortado, e o bebê é
+                        limpo, aquecido e, se necessário, aspirado para remover líquidos das vias respiratórias.
+                    </p>
+
+
+                    <div class="childbirth__footer">
+                        <div class="childbirth__avatar">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+
+                        </div>
+                        <div class="childbirth__actions">
+                            <button>Detalhes</button>
+                            <button>Sobre a Mae</button>
+                            <button>Sobre o Medico</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+            <div class="row-full">
+                <a href="index.html" class="back">
+                    VOLTAR
+                </a>
+            </div>
+
+
+        </section>
+
+        <footer class="hsp-footer">
+
+            <button class="hsp-footer__menu" id="button_openmenu" onclick="events()">
+                <img class="hsp-footer__menu__action"
+                    src="assets/imgs/radio_button_checked_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="" srcset="">
+            </button>
+
+        </footer>
+    </div>
+
+    <script src="assets/core.js"></script>
+
+    <script>
+
+
+
+
+
+        const ctx = document.getElementById('graficoVendas').getContext('2d');
+        const graficoVendas = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                datasets: [{
+                    label: 'Vendas (R$)',
+                    data: [1200, 1900, 3000, 2500],
+                    backgroundColor: '#4e73df',
+                    borderColor: '#2e59d9',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return 'R$ ' + value;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

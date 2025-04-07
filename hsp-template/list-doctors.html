@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/global.css">
+    <link rel="stylesheet" href="assets/home/home.css">
+    <title>HSP-PARTOS</title>
+</head>
+
+<body>
+    <div class="hsp hsp--tablet">
+        <section id="box_menu" class=" footer__menu hidden ">
+            <section class="footer__menu__title">
+                <h2>Hospital</h2>
+                <span>
+                    <a href="index.html" onclick="events()">
+                        X
+                    </a>
+                </span>
+            </section>
+            <section class="footer__menu__content">
+                <a href="index.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M220-180h150v-250h220v250h150v-390L480-765 220-570v390Zm-60 60v-480l320-240 320 240v480H530v-250H430v250H160Zm320-353Z" />
+                        </svg>
+                        <p>
+                            Tela Geral do Sistema
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="recent-births.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M120-80v-397.95L182-662q8-23 26.5-35.5t40.87-12.5q7.16 0 14.31 1.29 7.16 1.28 14.32 4.71l168 74h94v60H432l-116-51-56 169v372H120Zm250-130v-60h470v60H370Zm410-110q-25 0-42.5-17.5T720-380q0-25 17.5-42.5T780-440q25 0 42.5 17.5T840-380q0 25-17.5 42.5T780-320Zm-270-10q-24.75 0-42.37-17.63Q450-365.25 450-390v-60h-80v-60h110.18q12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v50h120v-80h60v120q0 24.75-17.62 42.37Q654.75-330 630-330H510ZM313.08-774q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+                        <p>
+                            Partos Recentes do Ultimos 10 Dias
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="bercarios.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M411-80v-180h-91v-314q0-50 28-78t77.5-28q49.5 0 76 33t26.5 73q52 6 82 41.5t30 89.5v183H485v180h-74Zm15.08-654q-30.08 0-51.58-21.42t-21.5-51.5q0-30.08 21.42-51.58t51.5-21.5q30.08 0 51.58 21.42t21.5 51.5q0 30.08-21.42 51.58t-51.5 21.5Z" />
+                        </svg>
+
+
+                        <p>
+                            Registrar um novo Paciente
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+                <a href="list-medicos.html">
+                    <span class="menubox">
+
+
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M290-240h60v-90h90v-60h-90v-90h-60v90h-90v60h90v90Zm230-150h240v-40H520v40Zm0 120h160v-40H520v40ZM140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42.41-18h59.18Q534-880 552-862q18 18 18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42.41 16h-59.18Q426-530 408-546q-18-16-18-44v-30H140v480Zm310-450h60v-230h-60v230Zm30 210Z" />
+                        </svg>
+
+                        <p>
+                            Grade de Medicos
+                        </p>
+                    </span>
+                </a>
+
+
+                <a href="create-newborn.html">
+                    <span class="menubox">
+                        <svg class="menu-ico" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                            width="48px" fill="#1f1f1f">
+                            <path
+                                d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+                        </svg>
+                        <p>
+                            Registrar novo Parto de uma Criança
+                        </p>
+                    </span>
+                </a>
+
+
+
+
+
+
+            </section>
+        </section>
+
+        <section class="headinfo">
+            <div class="headinfo__logo">
+                <img class="headinfo__avatar" src="assets/imgs/logo_one.png" alt="" srcset="">
+            </div>
+            <div class="headinfo__title">
+                <div class="headinfo__title__title">Hospital Super Parto</div>
+                <div class="headinfo__title__info">Controle de Nascimento e Gestão de Parto.</div>
+
+            </div>
+            <div class="headinfo__version">
+                <span>versão: 1 </span>
+            </div>
+        </section>
+
+        <section class="hsp-main">
+
+
+
+
+            <div class="row-full row-full-c1">
+
+                <a class="btn-full" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                        fill="#1f1f1f">
+                        <path
+                            d="M679-466 466-679l213-213 213 213-213 213Zm-559-72v-301h301v301H120Zm418 418v-301h301v301H538Zm-418 0v-301h301v301H120Zm60-478h181v-181H180v181Zm502 51 129-129-129-129-129 129 129 129Zm-84 367h181v-181H598v181Zm-418 0h181v-181H180v181Zm181-418Zm192-78ZM361-361Zm237 0Z" />
+                    </svg>
+                </a>
+
+                <a class="btn-full" href="create-doctors.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                        fill="#1f1f1f">
+                        <path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z" />
+                    </svg>
+                    Novo Médico
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+            <div class="row-full">
+
+
+                <div class="row-childbirth">
+
+                    <h1>Medico :Pediatria Cirurgia</h1>
+                    <h2>Maria Jose Kardoso Silva Paulo</h2>
+                    <h3>
+                        Médico:EdilsonCsilva , Pediatra
+                    </h3>
+                    <h4>
+                        CRM:9886GGBS65443S
+                    </h4>
+
+                    <p>
+                        Claro! Aqui está um modelo de currículo de médico com uma estrutura clara, profissional e
+                        objetiva, ideal para impressão ou envio por e-mail em formato PDF. O texto pode ser adaptado
+                        conforme a especialidade, experiência ou foco (hospitalar, clínica, pesquisa, etc.).
+                    </p>
+
+                    <section>
+                        <ul class="lista-bonita">
+                            <li>Atendimento ambulatorial e emergencial em cardiologia.</li>
+                            <li>Realização de exames complementares: eletrocardiograma, ecocardiograma.
+
+                                .</li>
+                            <li>AParticipação em equipe multidisciplinar para acompanhamento de pacientes crônicos.</li>
+
+                        </ul>
+                    </section>
+
+                    <div class="childbirth__footer">
+                        <div class="childbirth__avatar">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+
+                        </div>
+                        <div class="childbirth__actions">
+                            <button>Informações</button>
+                            <button>Treinamentos|Especializaçoes</button>
+                            <button>Historico de Atividades</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="row-childbirth">
+
+                    <h1>Medico :CARDIACO </h1>
+                    <h2>FELIE Kardoso </h2>
+                    <h3>
+                        Médico:EdilsonCsilva , CORAÇAO
+                    </h3>
+                    <h4>
+                        CRM:9886223e
+                    </h4>
+
+                    <p>
+                        Claro! Aqui está um modelo de currículo de médico com uma estrutura clara, profissional e
+                        objetiva, ideal para impressão ou envio por e-mail em formato PDF. O texto pode ser adaptado
+                        conforme a especialidade, experiência ou foco (hospitalar, clínica, pesquisa, etc.).
+
+                        2344
+                    </p>
+
+                    <section>
+                        <ul class="lista-bonita">
+                            <li>Atendimento ambulatorial e emergencial em cardiologia.</li>
+                            <li>Realização de exames complementares: eletrocardiograma, ecocardiograma.
+                        </ul>
+                    </section>
+
+                    <div class="childbirth__footer">
+                        <div class="childbirth__avatar">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+
+                        </div>
+                        <div class="childbirth__actions">
+                            <button>Informações</button>
+                            <button>Treinamentos|Especializaçoes</button>
+                            <button>Historico de Atividades</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+            <div class="row-full">
+                <a href="index.html" class="back">
+                    VOLTAR
+                </a>
+            </div>
+
+
+        </section>
+
+        <footer class="hsp-footer">
+
+            <button class="hsp-footer__menu" id="button_openmenu" onclick="events()">
+                <img class="hsp-footer__menu__action"
+                    src="assets/imgs/radio_button_checked_42dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg" alt="" srcset="">
+            </button>
+
+        </footer>
+    </div>
+
+    <script src="assets/core.js"></script>
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
