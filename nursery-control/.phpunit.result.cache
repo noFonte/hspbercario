@@ -1,1 +1,1 @@
-{"version":1,"defects":{"MotherTest::testCreatedMother":7,"MotherTest::testUpdateMother":7},"times":{"MotherTest::testCreatedMother":0.005,"MotherTest::testUpdateMother":0.012}}
+{"version":1,"defects":{"MotherTest::testCreatedMother":3,"MotherTest::testUpdateMother":3},"times":{"MotherTest::testCreatedMother":0.003,"MotherTest::testUpdateMother":0}}
