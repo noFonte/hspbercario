@@ -1,0 +1,13 @@
+{
+    "name": "root/nursery-control",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "application/",
+            "Domain\\": "domain/",
+            "Infra\\": "infra/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}

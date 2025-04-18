@@ -1,0 +1,50 @@
+-Instalar docker e o docker composer  -  para Windows e Linux 
+
+Linux base Ubuntu: 
+----https://docs.docker.com/compose/insta...
+
+Windows :
+----   • How to install docker-compose on Windows  
+
+
+Imagem Docker Aula 
+
+https://drive.google.com/file/d/1xZOu...  
+
+
+Seguir instalação do video 
+
+os comandos e dentro da pasta servidor  para  funcionar 
+
+
+docker stop $(docker ps -aq)
+docker rmi -f $(docker images -q)
+docker system prune -a --volumes
+
+
+ echo "Iniciando os containers..."
+ docker-compose up -d
+
+ echo "Parando os containers..."
+ docker-compose down
+
+ echo "Removendo os containers e volumes..."
+ docker-compose down -v
+
+
+
+docker exec -it  webserver /bin/bash
+
+
+docker exec -it  webserversql /bin/bash
+
+
+docker exec -it  webserversqladmin /bin/bash
+
+
+
+
+
+
+
+ 
