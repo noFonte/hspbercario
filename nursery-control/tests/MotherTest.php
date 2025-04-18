@@ -1,26 +1,45 @@
 <?php
- 
+
 use Application\MotherInput;
 use PHPUnit\Framework\TestCase;
+
 use Domain\UseCases\UpdateMotherUseCase;
 use Domain\UseCases\CreatedMotherUseCase;
-use Infra\Repositories\IMotherRepository;
-use Infra\Repositories\Entities\MontherEntity;
+use Infra\Repositories\Entities\IMotherRepository;
+ 
+
+
+class MotherInMomeryRepository implements IMotherRepository{
+
+    private $tablemothers=[];
+
+
+    function created(MotherInput $mother){
+        $this->tablemothers[]=$mother;
+        return true;
+    }
 
 
 
-
-
+    function update($code,MotherInput $mother){
+        foreach($this->tablemothers as $key => $row){
+            if($row->code==$code){
+                $mother->code=$code;
+                $this->tablemothers[$key] = $mother;
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+};
 
 
 
 
 class MotherTest extends TestCase{
     function testCreatedMother(){
-
-
-
-       
         $mother = new MotherInput(
             [
                 "code"=>uniqid(),
@@ -30,18 +49,14 @@ class MotherTest extends TestCase{
                 "dateofbirth"=>1983
             ]
         );
-
-
-
-      
-        $createdMotherUseCase =  new CreatedMotherUseCase(new MotherRepository());
+        $createdMotherUseCase =  new CreatedMotherUseCase(new MotherInMomeryRepository());
         $output=$createdMotherUseCase->execute($mother);
         $this->assertEquals(true,$output);
     }
 
 
     function testUpdateMother(){
-       
+        $motherMemory=new MotherInMomeryRepository();
         $mother = new MotherInput(
             [
                 "code"=>uniqid(),
@@ -51,19 +66,13 @@ class MotherTest extends TestCase{
                 "dateofbirth"=>1983
             ]
         );
-
-
-        $createdMotherUseCase =  new CreatedMotherUseCase(new MotherRepository());
+        $createdMotherUseCase =  new CreatedMotherUseCase( $motherMemory);
         $output=$createdMotherUseCase->execute($mother);
         $this->assertEquals(true,$output);
-
-
         $mother->dateofbirth = 1900;
-        $updateMotherUseCase =new UpdateMotherUseCase(new MotherRepository());
+        $updateMotherUseCase =new UpdateMotherUseCase($motherMemory);
         $output=$updateMotherUseCase->execute($mother->code,$mother);
         $this->assertEquals(true,$output);
-        
-
 
     }
     
