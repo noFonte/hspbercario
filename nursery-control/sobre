@@ -61,4 +61,22 @@ docker exec -it  webserversqladmin /bin/bash
 
 
 
+//Windows Git e Docker 
+
+cd "C:/gits"
+ 
+eval "$(ssh-agent -s)"
+
+ssh-add aulas_18042025
+
+
+cd "C:\Users\edi\Documents\servidor\www"
+
+
+git clone git@github.com:noFonte/hspbercario.git
+
+
+
+vendor/bin/phpunit   # dentro do docker container web
+
  

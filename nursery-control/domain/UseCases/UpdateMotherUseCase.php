@@ -3,7 +3,9 @@
 namespace Domain\UseCases;
 
 use Application\MotherInput;
-use Infra\Repositories\Entities\IMotherRepository;
+use Infra\Repositories\IMotherRepository;
+
+ 
 
 
 

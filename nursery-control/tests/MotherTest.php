@@ -2,30 +2,31 @@
 
 use Application\MotherInput;
 use PHPUnit\Framework\TestCase;
-
 use Domain\UseCases\UpdateMotherUseCase;
 use Domain\UseCases\CreatedMotherUseCase;
-use Infra\Repositories\Entities\IMotherRepository;
+use Infra\Repositories\IMotherRepository;
+use Infra\Repositories\Entities\MotherEntity;
+use Infra\Exceptions\motherAlreadyExistsException;
+
  
 
 
-class MotherInMomeryRepository implements IMotherRepository{
+class MotherInMemoryRepository implements IMotherRepository{
 
     private $tablemothers=[];
-
-
     function created(MotherInput $mother){
-        $this->tablemothers[]=$mother;
+        if(!is_null($this->byCode($mother->code))){
+            throw new motherAlreadyExistsException("duplicate record");
+        }
+        $motherEntity =  new MotherEntity($mother->toArray());
+        $this->tablemothers[]=$motherEntity;
         return true;
     }
-
-
-
     function update($code,MotherInput $mother){
         foreach($this->tablemothers as $key => $row){
-            if($row->code==$code){
-                $mother->code=$code;
-                $this->tablemothers[$key] = $mother;
+            if($this->byCode($code)){
+                $motherEntity =  new MotherEntity($mother->toArray());
+                $this->tablemothers[$key] = $motherEntity;
                 return true;
             }
         }
@@ -33,13 +34,21 @@ class MotherInMomeryRepository implements IMotherRepository{
         return false;
     }
     
+    function byCode($code){
+        foreach($this->tablemothers as $key => $row){
+            if($row->code==$code){
+                return new MotherInput($row->toArray());
+            }
+        }
+        return null;
+    }
 };
-
-
 
 
 class MotherTest extends TestCase{
     function testCreatedMother(){
+        $motherMemory=new MotherInMemoryRepository();
+
         $mother = new MotherInput(
             [
                 "code"=>uniqid(),
@@ -49,14 +58,14 @@ class MotherTest extends TestCase{
                 "dateofbirth"=>1983
             ]
         );
-        $createdMotherUseCase =  new CreatedMotherUseCase(new MotherInMomeryRepository());
+        $createdMotherUseCase =  new CreatedMotherUseCase($motherMemory);
         $output=$createdMotherUseCase->execute($mother);
         $this->assertEquals(true,$output);
     }
 
 
     function testUpdateMother(){
-        $motherMemory=new MotherInMomeryRepository();
+        $motherMemory=new MotherInMemoryRepository();
         $mother = new MotherInput(
             [
                 "code"=>uniqid(),
@@ -76,5 +85,29 @@ class MotherTest extends TestCase{
 
     }
     
+
+    function testFailHasMotherRegistred(){
+        $this->expectException(motherAlreadyExistsException::class);
+        $motherMemory=new MotherInMemoryRepository();
+        $mother = new MotherInput(
+            [
+                "code"=>uniqid(),
+                "name"=>sprintf("Mae_%s",uniqid()),
+                "address"=>sprintf("Mae_%s_endereco",uniqid()),
+                "phone" => rand(9999990,9999999),
+                "dateofbirth"=>1983
+            ]
+        );
+        $createdMotherUseCase =  new CreatedMotherUseCase( $motherMemory);
+        $output=$createdMotherUseCase->execute($mother);
+        $this->assertEquals(true,$output);
+        $createdMotherUseCase =  new CreatedMotherUseCase( $motherMemory);
+        $output=$createdMotherUseCase->execute($mother);
+
+
+
+    }
+    
+
 
 }
