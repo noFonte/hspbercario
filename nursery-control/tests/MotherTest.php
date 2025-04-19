@@ -4,46 +4,11 @@ use Application\MotherInput;
 use PHPUnit\Framework\TestCase;
 use Domain\UseCases\UpdateMotherUseCase;
 use Domain\UseCases\CreatedMotherUseCase;
-use Infra\Repositories\IMotherRepository;
-use Infra\Repositories\Entities\MotherEntity;
-use Infra\Exceptions\motherAlreadyExistsException;
+use Infra\Exceptions\MotherAlreadyExistsException;
+ 
+require_once("libs.php");
+require_once("RepositoriesInMemory/MotherInMemoryRepository.php");
 
-class MotherInMemoryRepository implements IMotherRepository
-{
-
-    private $tablemothers = [];
-    function created(MotherInput $mother)
-    {
-        if (!is_null($this->byCode($mother->code))) {
-            throw new motherAlreadyExistsException("duplicate record");
-        }
-        $motherEntity =  new MotherEntity($mother->toArray());
-        $this->tablemothers[] = $motherEntity;
-        return true;
-    }
-    function update($code, MotherInput $mother)
-    {
-        foreach ($this->tablemothers as $key => $row) {
-            if ($this->byCode($code)) {
-                $motherEntity =  new MotherEntity($mother->toArray());
-                $this->tablemothers[$key] = $motherEntity;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    function byCode($code)
-    {
-        foreach ($this->tablemothers as $key => $row) {
-            if ($row->code == $code) {
-                return new MotherInput($row->toArray());
-            }
-        }
-        return null;
-    }
-};
 
 
 class MotherTest extends TestCase
@@ -91,7 +56,7 @@ class MotherTest extends TestCase
 
     function testFailHasMotherRegistred()
     {
-        $this->expectException(motherAlreadyExistsException::class);
+        $this->expectException(MotherAlreadyExistsException::class);
         $motherMemory = new MotherInMemoryRepository();
         $mother = new MotherInput(
             [

@@ -20,8 +20,6 @@ class CreatedDoctorUseCase{
     }
 
     public function execute(DoctorInput $doctor){
-       
-
         return   $this->doctorRepository->created($doctor);
 
     }

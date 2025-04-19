@@ -4,53 +4,11 @@ use Application\DoctorInput;
 use PHPUnit\Framework\TestCase;
 use Domain\UseCases\UpdateDoctorUseCase;
 use Domain\UseCases\CreatedDoctorUseCase;
-use Infra\Repositories\IDoctorRepository;
 use Domain\UseCases\ListAllDoctorsUseCase;
-use Infra\Repositories\Entities\DoctorEntity;
 use Infra\Exceptions\DoctorAlreadyExistsException;
 
-class DoctorInMemoryRepository implements IDoctorRepository{
-    private $tabledoctors = [];
-    function created(DoctorInput $doctor){
-        if (!is_null($this->byCode($doctor->code))) {
-            throw new DoctorAlreadyExistsException("duplicate record");
-        }
-        $doctorEntity =  new DoctorEntity($doctor->toArray());
-        $this->tabledoctors[] = $doctorEntity;
-        return true;
 
-    }
-    function update($code,DoctorInput $doctor){
-        foreach ($this->tabledoctors as $key => $row) {
-            if ($this->byCode($code)) {
-                $doctorEntity =  new DoctorEntity($doctor->toArray());
-                $this->tabledoctors[$key] = $doctorEntity;
-                return true;
-            }
-        }
-
-        return false;
-    }
-    function byCode($code){
-        foreach ($this->tabledoctors as $key => $row) {
-            if ($row->code == $code) {
-                return new DoctorInput($row->toArray());
-            }
-        }
-        return null;
-    }
-    function all(){
-        $doctors=[];
-        foreach ($this->tabledoctors as $key => $row) {
-            $doctor=new DoctorInput($row->toArray());
-            $doctors[]= $doctor->toArray();
-        }
-        return  $doctors;
-    }
-
-}
-
-
+require_once("RepositoriesInMemory/DoctorInMemoryRepository.php");
 
 
 class DoctorTest extends TestCase
@@ -92,10 +50,10 @@ class DoctorTest extends TestCase
             ]
         );
         $createddoctorUseCase =  new CreatedDoctorUseCase($doctorMemory);
-        $output = $createddoctorUseCase->execute($doctor);
+        $createddoctorUseCase->execute($doctor);
       
         $createddoctorUseCase =  new CreatedDoctorUseCase($doctorMemory);
-        $output = $createddoctorUseCase->execute($doctor);
+        $createddoctorUseCase->execute($doctor);
     }
 
 
@@ -128,7 +86,6 @@ class DoctorTest extends TestCase
 
         $sizeDoctors = 1000;
         $doctorMemory = new DoctorInMemoryRepository();
-
         $doctors = [];
         for ($next = 0; $next < $sizeDoctors; $next++) {
             $doctor = new DoctorInput(
