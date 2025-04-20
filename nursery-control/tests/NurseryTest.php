@@ -160,8 +160,6 @@ class NurseryInMemoryRepository implements INurseryRepository
                 return true;
             }
         }
-
-      
     }
     function byCode($code)
     {
@@ -258,12 +256,12 @@ class NurseryTest extends TestCase
         $output = $createdNurseryUseCase->execute($nursery);
         $this->assertEquals(true, $output);
 
-      
+
         $activeOrDesactiveNurseryUseCase =  new ActiveOrDesactiveNurseryUseCase($nurseryMemory);
         $output = $activeOrDesactiveNurseryUseCase->execute($nursery->code, false);
         $this->assertEquals(true, $output);
 
-       
+
         $activeOrDesactiveNurseryUseCase =  new ActiveOrDesactiveNurseryUseCase($nurseryMemory);
         $output = $activeOrDesactiveNurseryUseCase->execute($nursery->code, true);
         $this->assertEquals(true, $output);
@@ -286,10 +284,5 @@ class NurseryTest extends TestCase
         $output = $createdNurseryUseCase->execute($Nursery);
         $createdNurseryUseCase =  new CreatedNurseryUseCase($nurseryMemory);
         $output = $createdNurseryUseCase->execute($Nursery);
-
-
-
-
-
     }
 }
