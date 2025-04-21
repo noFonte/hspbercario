@@ -269,6 +269,7 @@ interface IChildbirthRepository
 {
     function created(NewBirthInput $newBirth, NurseryInput $nurseryInput);
     function all();
+    function byCodeAssociatedChildbirth($code);
 }
 
 
@@ -292,6 +293,16 @@ class ChildbirthInMemoryRepository  implements IChildbirthRepository
     }
 
 
+    function byCodeAssociatedChildbirth($code){
+        foreach ($this->tableChildbirth as $key => $row) {
+            if ($row->associatedwithNursry == $code) {
+                return new ChildbirthOutPut($row->toArray());
+            }
+        }
+        return null;
+    }
+
+
     function all()
     {
         $childbirths = [];
@@ -301,6 +312,8 @@ class ChildbirthInMemoryRepository  implements IChildbirthRepository
 
         return $childbirths;
     }
+
+
 }
 
 
@@ -417,7 +430,7 @@ class RegisteringANewBirthUseCase
     public function execute(NewBirthInput $newBirth, NurseryInput $nurseryInput)
     {
 
-        dd([$newBirth, $nurseryInput]);
+       
         return $this->iChildbirthRepository->created($newBirth, $nurseryInput);
     }
 }
@@ -455,7 +468,7 @@ class AllNewBirthUseCase
             $iChildbirths = $this->iChildbirthRepository->all();
             foreach ($iChildbirths as $key => $row) {
 
-                dd([$row,  $this->iNurseryRepository]);
+                dd([$row->associatedwithNursry, $this->iChildbirthRepository->byCodeAssociatedChildbirth($row->associatedwithNursry)]);
             }
         }
     }
@@ -582,6 +595,7 @@ class NurseryTest extends TestCase
         $createddoctorUseCase =  new CreatedDoctorUseCase($doctorMemory);
         $output = $createddoctorUseCase->execute($doctor);
         $this->assertEquals(true, $output);
+
         $mother = new MotherInput(
             [
                 "code" => uniqid(),
@@ -594,6 +608,7 @@ class NurseryTest extends TestCase
         $createdMotherUseCase =  new CreatedMotherUseCase($motherMemory);
         $output = $createdMotherUseCase->execute($mother);
         $this->assertEquals(true, $output);
+
         $newborn = new NewBornInput(
             [
                 "code" => uniqid(),
@@ -608,6 +623,10 @@ class NurseryTest extends TestCase
         $createdNewBornUseCase =  new CreatedNewBornUseCase($newbornMemory);
         $output = $createdNewBornUseCase->execute($newborn);
         $this->assertEquals(true, $output);
+
+
+        
+
         $newBirth = new NewBirthInput(
             [
                 "code" => uniqid(),
@@ -626,20 +645,22 @@ class NurseryTest extends TestCase
         );
         $output = $registeringANewBirth->execute($newBirth, $nursery);
         $this->assertEquals(true, $output);
+
+
     }
 
     
 
-
-
-    function testRegisteringANewBirthOfTwins()
-    {
 
         /*
             Deve Adicionar um Novo  parto, Associando A Mãe e a Criança e o
             MEdico que realizou o parto se o [**bercario estiver ativo]
 
         */
+
+    function testRegisteringANewBirthOfTwins()
+    {
+
         $motherMemory = new MotherInMemoryRepository();
         $doctorMemory = new DoctorInMemoryRepository();
         $newbornMemory = new NewBornInMemoryRepository();
@@ -748,6 +769,9 @@ class NurseryTest extends TestCase
             $output = $registeringANewBirth->execute($newBirth, $nursery);
             $this->assertEquals(true, $output);
         }
+
+
+
         $allNewBirthUseCase =  new AllNewBirthUseCase(
             $nurseryMemory,
             $childbirthMemory,
@@ -760,4 +784,6 @@ class NurseryTest extends TestCase
 
         $this->assertEquals(3, $output);
     }
+
+
 }

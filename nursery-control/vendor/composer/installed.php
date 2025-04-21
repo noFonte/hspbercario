@@ -3,7 +3,7 @@
         'name' => 'root/nursery-control',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3b2ae7e584f24c370b292d43fbd7a04c3786f2bd',
+        'reference' => '6b546fb26a2668282545d79330cf06c8dc472ff7',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -112,7 +112,7 @@
         'root/nursery-control' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3b2ae7e584f24c370b292d43fbd7a04c3786f2bd',
+            'reference' => '6b546fb26a2668282545d79330cf06c8dc472ff7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
